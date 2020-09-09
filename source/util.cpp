@@ -59,3 +59,19 @@ void util::input::left_up( )
 	input.mi.dwFlags = MOUSEEVENTF_LEFTUP;
 	LI_FN( SendInput ).cached( )( 1, &input, sizeof( INPUT ) );
 }
+
+void util::input::right_down()
+{
+	INPUT input = { 0 };
+	input.type = INPUT_MOUSE;
+	input.mi.dwFlags = MOUSEEVENTF_RIGHTDOWN;
+	LI_FN(SendInput).cached()(1, &input, sizeof(INPUT));
+}
+
+void util::input::right_up()
+{
+	INPUT input = { 0 };
+	input.type = INPUT_MOUSE;
+	input.mi.dwFlags = MOUSEEVENTF_RIGHTUP;
+	LI_FN(SendInput).cached()(1, &input, sizeof(INPUT));
+}

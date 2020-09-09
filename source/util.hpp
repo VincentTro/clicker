@@ -16,6 +16,8 @@ namespace util
 	{
 		void left_down( );
 		void left_up( );
+		void right_down();
+		void right_up();
 	}
 
 

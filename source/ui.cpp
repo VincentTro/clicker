@@ -274,16 +274,16 @@ bool ui::create( )
 	style->Colors[ ImGuiCol_FrameBgHovered ] = color( 51, 51, 51 );
 	style->Colors[ ImGuiCol_FrameBgActive ] = color( 74, 74, 74 );
 	style->Colors[ ImGuiCol_Button ] = color(212, 42, 30);
-	style->Colors[ ImGuiCol_ButtonHovered ] = color( 240, 123, 254 );
-	style->Colors[ ImGuiCol_ButtonActive ] = color( 240, 142, 252 );
+	style->Colors[ ImGuiCol_ButtonHovered ] = color(25, 25, 25);
+	style->Colors[ ImGuiCol_ButtonActive ] = color(25, 25, 25);
 	style->Colors[ ImGuiCol_ScrollbarGrab ] = color(212, 42, 30);
 	style->Colors[ ImGuiCol_ScrollbarBg ] = color( 25, 25, 25 );
 	style->Colors[ ImGuiCol_ScrollbarGrabHovered ] = color(212, 42, 30);
 	style->Colors[ ImGuiCol_ScrollbarGrabActive ] = color(212, 42, 30);
-	style->Colors[ ImGuiCol_SliderGrab ] = color( 239, 104, 255 );
-	style->Colors[ ImGuiCol_SliderGrabActive ] = color( 240, 142, 252 );
+	style->Colors[ ImGuiCol_SliderGrab ] = color(25, 25, 25);
+	style->Colors[ ImGuiCol_SliderGrabActive ] = color(25, 25, 25);
 	style->Colors[ ImGuiCol_CheckMark ] = color( 240, 142, 252 );
-	style->Colors[ ImGuiCol_Header ] = color( 240, 142, 252 );
+	style->Colors[ ImGuiCol_Header ] = color(212, 42, 30);
 	style->Colors[ ImGuiCol_HeaderHovered ] = color(212, 42, 30);
 	style->Colors[ ImGuiCol_HeaderActive ] = color(212, 42, 30);
 

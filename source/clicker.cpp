@@ -5,8 +5,7 @@ DWORD __stdcall clicker::work( LPVOID lParam )
 	do
 	{
 		std::this_thread::sleep_for( std::chrono::milliseconds( 1 ) );
-
-		if
+			if
 			(
 				config.clicker.enabled &&
 				config.clicker.hotkey_enabled &&
@@ -34,13 +33,45 @@ DWORD __stdcall clicker::work( LPVOID lParam )
 					var::l_last_click_time = std::clock( );
 
 					std::this_thread::sleep_for( std::chrono::milliseconds( util::math::random_int( 30, 50 ) ) );
-					util::input::left_up( );
+					util::input::left_up();
 
 					var::i_clicks_this_session++;
 
 					_log( LDEBUG, "random_delay %d clock %d last click time %d", random_delay, std::clock( ), var::l_last_click_time );
 
 				}
+
+			}
+			if (var::r_first_click)
+			{
+				std::this_thread::sleep_for(std::chrono::milliseconds(30));
+				util::input::right_up();
+				var::r_first_click = false;
+			}
+			else
+			{
+				auto random_delay = util::math::random_int
+				(
+					1000 / (config.clicker.min_cps + config.clicker.max_cps * (int)0.2),
+					1000 / (config.clicker.min_cps + config.clicker.max_cps * (int)0.48)
+				); // old meth logic
+
+				if ((std::clock() - var::r_last_click_time) > random_delay)
+				{
+					util::input::right_down();
+					var::r_last_click_time = std::clock();
+
+					std::this_thread::sleep_for(std::chrono::milliseconds(util::math::random_int(30, 50)));
+					util::input::right_up();;
+
+					var::r_clicks_this_session++;
+
+					_log(LDEBUG, "random_delay %d clock %d last click time %d", random_delay, std::clock(), var::l_last_click_time);
+
+				}
+
+
+
 			}
 		}
 
